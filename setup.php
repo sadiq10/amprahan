@@ -17,6 +17,12 @@ function readInput($prompt) {
 
 // Fungsi untuk membuat file konfigurasi
 function createConfigFile($host, $dbname, $username, $password) {
+    // Sanitize input to prevent code injection
+    $host = addslashes($host);
+    $dbname = addslashes($dbname);
+    $username = addslashes($username);
+    $password = addslashes($password);
+
     $configContent = "<?php
 // backend/src/config/database.php
 
